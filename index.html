@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>David Nowlin Portfolio</title>
+<meta name="description" content="Instructional design portfolio of David Nowlin: e-learning, branching scenarios, instructor-led training, and assessment design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  --paper:#F3F6F5; --surface:#FFFFFF; --ink:#16252D; --muted:#51636B; --rule:#D3DCDA;
+  --accent:#0E6B66; --accent-ink:#FFFFFF; --mark:#E2A623; --mark-ink:#2A1E00; --chip:#E6EEEC;
+  --shadow:0 1px 2px rgba(22,37,45,.06),0 8px 24px -12px rgba(22,37,45,.18);
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"Public Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;--paper:#0F171B;--surface:#162228;--ink:#E3EAE8;--muted:#9AABB1;--rule:#2A3A41;
+  --accent:#4DB6AE;--accent-ink:#06201E;--mark:#E8B84A;--mark-ink:#241900;--chip:#1E2E35;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6);}}
+:root[data-theme="dark"]{
+  color-scheme:dark;--paper:#0F171B;--surface:#162228;--ink:#E3EAE8;--muted:#9AABB1;--rule:#2A3A41;
+  --accent:#4DB6AE;--accent-ink:#06201E;--mark:#E8B84A;--mark-ink:#241900;--chip:#1E2E35;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6);}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);padding-inline:20px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin-inline:auto}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--mark);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;text-wrap:balance;margin:0}
+.label{font:500 12px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* nav */
+nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px;border-bottom:1px solid var(--rule)}
+nav .mono{font:500 14px var(--mono);color:var(--ink);text-decoration:none;letter-spacing:.02em}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav ul a{color:var(--muted);text-decoration:none;font-size:15px}
+nav ul a:hover{color:var(--ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;padding-block:64px 56px;align-items:end}
+.hero h1{font-size:clamp(40px,6.2vw,68px);font-weight:700;letter-spacing:-.025em}
+.hero h1 span{display:block;color:var(--accent)}
+.hero .lede{font-size:20px;max-width:36ch;margin:22px 0 0;color:var(--ink)}
+.facts{display:grid;gap:0;border-top:2px solid var(--ink)}
+.facts div{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:baseline;padding-block:12px;border-bottom:1px solid var(--rule)}
+.facts b{font:700 28px/1 var(--display);font-variant-numeric:tabular-nums;min-width:2.2ch}
+.facts span{color:var(--muted);font-size:15px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:6px;font:600 15px var(--body);text-decoration:none;border:1.5px solid var(--accent);cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn:hover{filter:brightness(1.08)}
+
+/* ADDIE key */
+.addie-key{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;padding:16px 0;border-block:1px solid var(--rule);margin-bottom:8px}
+.addie{display:inline-grid;grid-template-columns:repeat(5,auto);gap:3px}
+.addie i{font:500 11px/1 var(--mono);font-style:normal;width:22px;height:22px;display:grid;place-items:center;border-radius:3px;background:var(--chip);color:var(--muted)}
+.addie i.on{background:var(--mark);color:var(--mark-ink)}
+
+/* work */
+section{padding-block:56px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.sec-head h2{font-size:clamp(30px,4.2vw,44px);letter-spacing:-.015em}
+.sec-head p{margin:0;max-width:48ch;color:var(--muted)}
+.projects{display:grid;gap:28px}
+.proj{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);background:var(--surface);border:1px solid var(--rule);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+.proj.feature{grid-template-columns:minmax(0,6fr) minmax(0,6fr)}
+.thumb{position:relative;background:var(--chip);border-right:1px solid var(--rule);min-height:240px}
+.thumb img{display:block;width:100%;height:100%;object-fit:contain;object-position:center top;padding:52px 26px 0;filter:drop-shadow(0 6px 14px rgba(22,37,45,.22))}
+.thumb .fmt{position:absolute;left:14px;top:14px;background:var(--ink);color:var(--paper);font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:7px 9px;border-radius:4px}
+.thumb svg{display:block;width:100%;height:100%}
+.pbody{padding:28px 30px;display:flex;flex-direction:column;gap:14px}
+.pbody h3{font-size:26px;letter-spacing:-.01em}
+.pbody p{margin:0}
+.meta{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:15px;margin:2px 0}
+.meta dt{font:500 12px/1.9 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.meta dd{margin:0}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+.note{font-size:14px;color:var(--muted)}
+
+/* approach */
+.approach{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
+.approach div{padding:22px 24px 8px 0}
+.approach div + div{padding-left:24px;border-left:1px solid var(--rule)}
+.approach h3{font-size:21px;margin-bottom:8px}
+.approach p{margin:0;color:var(--muted);font-size:16px}
+
+/* experience */
+.exp{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.exp ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.exp li{padding-block:14px;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:4.6em 1fr;gap:14px}
+.exp li b{white-space:nowrap;font:700 20px/1.3 var(--display);color:var(--accent);font-variant-numeric:tabular-nums}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.tools span{background:var(--chip);border-radius:4px;padding:5px 10px;font-size:14px}
+.exp h3{font-size:20px;margin:0 0 10px}
+.exp .block + .block{margin-top:28px}
+
+/* contact */
+.contact{background:var(--ink);color:var(--paper);border-radius:12px;padding:44px 40px;display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;margin-block:24px 56px}
+.contact h2{font-size:clamp(28px,4vw,40px);color:var(--paper)}
+.contact p{margin:12px 0 0;opacity:.8;max-width:40ch}
+.email{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.email code{font:500 16px var(--mono);background:rgba(255,255,255,.08);padding:12px 14px;border-radius:6px;user-select:all;word-break:break-all}
+:root[data-theme="dark"] .email code{background:rgba(0,0,0,.2)}
+.contact .btn{border-color:var(--paper);color:var(--paper);background:transparent}
+footer{padding-block:0 40px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:860px){
+  .hero,.exp,.contact{grid-template-columns:1fr}
+  .hero{padding-block:40px;gap:32px}
+  .proj,.proj.feature{grid-template-columns:1fr}
+  .thumb{border-right:0;border-bottom:1px solid var(--rule);aspect-ratio:4/3;min-height:0;max-width:100%}
+  .approach{grid-template-columns:1fr}
+  .approach div,.approach div + div{padding:18px 0;border-left:0;border-bottom:1px solid var(--rule)}
+  .pbody{padding:22px 20px}
+  .contact{padding:32px 22px}
+}
+@media (max-width:520px){nav ul{gap:14px}nav ul li:nth-child(2){display:none}body{font-size:16px}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+<nav aria-label="Main">
+  <a class="mono" href="#top">david nowlin / isd</a>
+  <ul>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top">
+  <div>
+    <p class="label">Instructional Systems Designer</p>
+    <h1>David Nowlin<span>designs training that changes how people think on the job.</span></h1>
+    <p class="lede">Fourteen years building e-learning, instructor-led, and blended training for the U.S. Navy, Air Force, Coast Guard, and GSA.</p>
+    <div class="cta">
+      <a class="btn primary" href="#work">See the work</a>
+      <a class="btn ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+  <div class="facts" aria-label="At a glance">
+    <div><b>14</b><span>years in instructional design and adult education</span></div>
+    <div><b>4</b><span>federal clients: Navy, Air Force, Coast Guard, GSA</span></div>
+    <div><b>M.S.</b><span>Instructional Design &amp; Development</span></div>
+    <div><b>DoD</b><span>Active Secret clearance</span></div>
+  </div>
+</header>
+</div>
+
+<main class="wrap">
+<section id="work" style="padding-top:24px">
+  <div class="sec-head">
+    <h2>Work samples</h2>
+    <p>Five pieces across the delivery formats I build most: self-paced e-learning, branching practice, instructor-led training, instructional text, and assessment.</p>
+  </div>
+  <div class="addie-key">
+    <span class="label">Key</span>
+    <span class="addie" aria-hidden="true"><i class="on">A</i><i class="on">D</i><i class="on">D</i><i class="on">I</i><i class="on">E</i></span>
+    <span class="note">Highlighted letters mark the ADDIE phases each sample shows: Analysis, Design, Development, Implementation, Evaluation.</span>
+  </div>
+
+  <div class="projects">
+
+    <article class="proj feature">
+      <div class="thumb"><img src="img/critical-thinking-course-storyboard.jpg" alt="First page of the course storyboard, showing the title and a lesson banner photo"><span class="fmt">Rise 360 · e-learning</span></div>
+      <div class="pbody">
+        <span class="addie" aria-label="ADDIE phases: Analysis, Design, Development"><i class="on">A</i><i class="on">D</i><i class="on">D</i><i>I</i><i>E</i></span>
+        <h3>Designing Instructional Content for Critical Thinking in Adult Learning</h3>
+        <p>A four-lesson, self-paced course for adult educators, trainers, and newly promoted managers. Each lesson opens with a workplace story, teaches the core idea, and moves learners into practice with realistic cases. By the end, learners evaluate their own training content against clear criteria for deeper learning.</p>
+        <dl class="meta">
+          <dt>Audience</dt><dd>Adult educators, corporate trainers, new managers</dd>
+          <dt>Lessons</dt><dd>Adult learning principles · Strategies for deeper learning · Embedding activities in lesson plans · Evaluating content</dd>
+          <dt>Built with</dt><dd>Articulate Rise 360: flip cards, scenarios, knowledge checks</dd>
+        </dl>
+        <div class="actions">
+          <a class="btn primary" href="https://share.articulate.com/9TauLqgW0Of1EgpHbtitR" target="_blank" rel="noopener">Launch course ↗</a>
+          <a class="btn ghost" href="samples/critical-thinking-course-storyboard.pdf" target="_blank" rel="noopener">Read storyboard (PDF)</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="thumb">
+        <svg viewBox="0 0 400 300" role="img" aria-label="Diagram of a branching scenario: one decision splits into paths with different outcomes">
+          <rect width="400" height="300" fill="var(--chip)"/>
+          <g stroke="var(--muted)" stroke-width="2" fill="none">
+            <path d="M200 70 C200 100,110 100,110 130"/><path d="M200 70 C200 100,290 100,290 130"/>
+            <path d="M110 160 C110 190,60 190,60 220"/><path d="M110 160 C110 190,160 190,160 220"/>
+            <path d="M290 160 C290 190,240 190,240 220"/><path d="M290 160 C290 190,340 190,340 220"/>
+          </g>
+          <rect x="160" y="40" width="80" height="30" rx="6" fill="var(--ink)"/>
+          <text x="200" y="60" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="12" fill="var(--paper)">START</text>
+          <g font-family="IBM Plex Mono,monospace" font-size="12" text-anchor="middle">
+            <rect x="70" y="130" width="80" height="30" rx="6" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.5"/><text x="110" y="150" fill="var(--ink)">CHOICE A</text>
+            <rect x="250" y="130" width="80" height="30" rx="6" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.5"/><text x="290" y="150" fill="var(--ink)">CHOICE B</text>
+            <circle cx="60" cy="232" r="12" fill="var(--mark)"/><circle cx="160" cy="232" r="12" fill="var(--surface)" stroke="var(--muted)" stroke-width="2"/>
+            <circle cx="240" cy="232" r="12" fill="var(--surface)" stroke="var(--muted)" stroke-width="2"/><circle cx="340" cy="232" r="12" fill="var(--accent)"/>
+          </g>
+        </svg>
+        <span class="fmt">We Are Learning · branching</span>
+      </div>
+      <div class="pbody">
+        <span class="addie" aria-label="ADDIE phases: Design, Development"><i>A</i><i class="on">D</i><i class="on">D</i><i>I</i><i>E</i></span>
+        <h3>Branching Decision Scenario</h3>
+        <p>An interactive scenario where each choice leads down a different path with its own consequences. Learners practice judgment in a safe setting and see how their decisions play out before they face the same call on the job.</p>
+        <dl class="meta">
+          <dt>Format</dt><dd>Choice-driven branching story with multiple outcomes</dd>
+          <dt>Built with</dt><dd>We Are Learning</dd>
+        </dl>
+        <div class="actions">
+          <a class="btn primary" href="https://play.wearelearning.com/play/LA0OXyP" target="_blank" rel="noopener">Play scenario ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="thumb"><img src="img/zoom-instructor-guide.jpg" alt="Cover page of the Zoom for Professionals instructor script"><span class="fmt">ILT · facilitator guide</span></div>
+      <div class="pbody">
+        <span class="addie" aria-label="ADDIE phases: Design, Development, Implementation"><i>A</i><i class="on">D</i><i class="on">D</i><i class="on">I</i><i>E</i></span>
+        <h3>Zoom for Professionals: Instructor Script</h3>
+        <p>A slide-by-slide facilitator guide for a three-hour, hands-on virtual class. It gives the lead instructor suggested narration, action cues, timing for every segment, and coordination notes for a second instructor who runs the chat.</p>
+        <dl class="meta">
+          <dt>Audience</dt><dd>Adult professionals with moderate computer skills</dd>
+          <dt>Covers</dt><dd>Joining and interface · Toolbar · Screen share, breakout rooms, polling · Security · Practice scenarios</dd>
+          <dt>Format</dt><dd>19-page guide, two-instructor delivery model</dd>
+        </dl>
+        <div class="actions">
+          <a class="btn primary" href="samples/zoom-instructor-guide.pdf" target="_blank" rel="noopener">Open guide (PDF)</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="thumb"><img src="img/critical-thinking-chapter-1.jpg" alt="First page of Unit One: Critical Thinking is Fundamental"><span class="fmt">Instructional text</span></div>
+      <div class="pbody">
+        <span class="addie" aria-label="ADDIE phases: Design, Development"><i>A</i><i class="on">D</i><i class="on">D</i><i>I</i><i>E</i></span>
+        <h3>Unit One: Critical Thinking is Fundamental</h3>
+        <p>A textbook chapter for adult learners that builds the case for critical thinking, then teaches it through Socratic questioning, the traits of critical thinkers, and the barriers that get in the way. Each concept is anchored in a story or example learners can discuss.</p>
+        <dl class="meta">
+          <dt>Objectives</dt><dd>Define critical thinking · Explain why it matters · Connect writing and thinking · Justify a decision · Apply Socratic inquiry</dd>
+          <dt>Format</dt><dd>12-page chapter excerpt</dd>
+        </dl>
+        <div class="actions">
+          <a class="btn primary" href="samples/critical-thinking-chapter-1.pdf" target="_blank" rel="noopener">Read chapter (PDF)</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="proj">
+      <div class="thumb"><img src="img/critical-thinking-rubric.jpg" alt="First page of the Critical Thinking Rubric, showing the research criteria table"><span class="fmt">Assessment · rubric</span></div>
+      <div class="pbody">
+        <span class="addie" aria-label="ADDIE phases: Design, Evaluation"><i>A</i><i class="on">D</i><i>D</i><i>I</i><i class="on">E</i></span>
+        <h3>Critical Thinking Rubric</h3>
+        <p>An analytic rubric that scores student projects on four equally weighted components, from research and analysis through written documentation and oral presentation. Every criterion defines what below, meets, and exceeds expectations looks like, so scoring stays consistent across graders.</p>
+        <dl class="meta">
+          <dt>Criteria</dt><dd>18, including problem definition, data interpretation, source attribution, and audience adaptation</dd>
+          <dt>Scale</dt><dd>3-point: Below · Meets · Exceeds Expectations</dd>
+        </dl>
+        <div class="actions">
+          <a class="btn primary" href="samples/critical-thinking-rubric.pdf" target="_blank" rel="noopener">View rubric (PDF)</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="approach">
+  <div class="sec-head">
+    <h2>How I design</h2>
+    <p>Content alone rarely changes performance. These three habits show up in everything above.</p>
+  </div>
+  <div class="approach">
+    <div><h3>Start from the job</h3><p>I build around the decisions people actually make at work, using their experience as material instead of treating it as a distraction.</p></div>
+    <div><h3>Practice early</h3><p>Learners apply and question ideas while they are still learning them, through cases, scenarios, and structured questions.</p></div>
+    <div><h3>Measure against criteria</h3><p>Objectives, rubrics, and knowledge checks share one set of criteria, so everyone knows what good performance looks like.</p></div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="sec-head"><h2>Experience</h2></div>
+  <div class="exp">
+    <div>
+      <h3>Selected results</h3>
+      <ul>
+        <li><b>4–5h</b><span>cut from GSA onboarding by redesigning four courses from slide decks into virtual and self-paced training</span></li>
+        <li><b>49%</b><span>reduction in the Coast Guard MH-65E new pilot student manual after consolidating its contents</span></li>
+        <li><b>11%</b><span>increase in adult learner GED graduation rates through interactive, differentiated instruction</span></li>
+        <li><b>C-130J</b><span>multi-module branching training in Storyline 360 for the AN/ARC-260 radio upgrade, replacing legacy classroom training</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="block">
+        <h3>Methods</h3>
+        <div class="tools"><span>ADDIE</span><span>Bloom's Taxonomy</span><span>Adult Learning Theory</span><span>Kirkpatrick Model</span><span>Storyboarding</span><span>Section 508</span></div>
+      </div>
+      <div class="block">
+        <h3>Tools</h3>
+        <div class="tools"><span>Articulate Rise 360</span><span>Storyline 360</span><span>We Are Learning</span><span>Moodle</span><span>Zoom</span><span>Microsoft 365</span><span>Generative AI</span></div>
+      </div>
+      <div class="block">
+        <h3>Education</h3>
+        <p style="margin:0">M.S., Instructional Design &amp; Development, University of South Alabama<br>B.A., Psychology, University of South Alabama</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div>
+    <h2>Let's talk about your training needs.</h2>
+    <p>I'm open to instructional design roles and projects. Email is the fastest way to reach me.</p>
+  </div>
+  <div class="email">
+    <code id="addr">davidlnowlin@gmail.com</code>
+    <button class="btn" id="copy" type="button">Copy email</button>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <span>© 2026 David Nowlin</span>
+  <span>Instructional Systems Designer</span>
+</footer>
+
+<script>
+document.getElementById('copy').addEventListener('click',function(){
+  var b=this,t=document.getElementById('addr').textContent;
+  function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('addr'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected, press Ctrl+C';}
+  try{navigator.clipboard.writeText(t).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy email'},1800)},sel)}catch(e){sel()}
+});
+</script>
+</body>
+</html>
